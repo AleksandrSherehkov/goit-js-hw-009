@@ -25,12 +25,6 @@ button:disabled {
   background-color: #f3f0f0;
 }
 
-button:hover,
-button:focus {
-  background-color: #969494;
-  border: 2px solid #969494;
-}
-
 .timer {
   display: flex;
   justify-content: center;

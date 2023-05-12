@@ -31,6 +31,9 @@ const promiseProcessing = ({ delay, step, amount }) => {
       })
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+      })
+      .finally(() => {
+        formEl.reset();
       });
     delay += step;
   }
@@ -40,7 +43,6 @@ function onCreatePromises(e) {
   e.preventDefault();
   createsValueObject();
   promiseProcessing(optionsValue);
-  formEl.reset();
 }
 
 formEl.addEventListener('submit', onCreatePromises);

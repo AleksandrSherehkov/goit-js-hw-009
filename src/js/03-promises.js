@@ -2,11 +2,11 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const formEl = document.querySelector('.form');
 
-const createsValueObject = () => {
+const createsValueObject = e => {
   return {
-    delay: formEl.elements.delay.valueAsNumber,
-    step: formEl.elements.step.valueAsNumber,
-    amount: formEl.elements.amount.valueAsNumber,
+    delay: e.target.elements.delay.valueAsNumber,
+    step: e.target.elements.step.valueAsNumber,
+    amount: e.target.elements.amount.valueAsNumber,
   };
 };
 
@@ -33,7 +33,7 @@ const promiseProcessing = ({ delay, step, amount }) => {
 function onCreatePromises(e) {
   e.preventDefault();
 
-  promiseProcessing(createsValueObject());
+  promiseProcessing(createsValueObject(e));
 }
 
 const onSuccess = ({ position, delay }) => {
